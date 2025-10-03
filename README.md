@@ -77,15 +77,15 @@ The project evolved through three major model versions, each with a specific goa
 
     - To train the baseline model:
       ```bash
-      python train_xpu.py --model model
+      python train.py --model model
       ```
     - To train the `v1` model:
       ```bash
-      python train_xpu.py --model model_v1
+      python train.py --model model_v1
       ```
     - To train the `v2` model:
       ```bash
-      python train_xpu.py --model model_v2
+      python train.py --model model_v2
       ```
 
     The script will automatically detect the best available hardware (XPU, CUDA, or CPU) and run the training. All results, logs, and plots will be saved in the `analytics` directory.
