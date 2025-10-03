@@ -53,15 +53,16 @@ The project evolved through three major model versions, each with a specific goa
   - **Managed Channel Growth**: The number of channels increases modestly (e.g., 1 -> 8 -> 10), peaks in the middle (12 channels), and then reduces before the final classification.
   - **`nn.AdaptiveAvgPool2d` (GAP)**: Retains the efficient GAP head from `model_v1`.
 - **Performance**:
-  - **Parameters**: 5,772
-  - **Best Accuracy**: 99.15% (achieved with the previous 7.7k parameter version, this new version is expected to perform similarly or better with proper tuning).
+  - **Parameters**: 7,718 (per analytics export)
+  - **Final RF**: 56 (covers the 28x28 input comfortably via GAP)
+  - **Best Accuracy**: 99.15% (observed on a prior ~7.7k-parameter variant; expect similar with this layout).
 - **Analysis**: This model represents the pinnacle of the optimization journey, achieving the lowest parameter count while maintaining a strong, deep architecture. It is a testament to principled CNN design, where every layer and channel is chosen with the parameter budget in mind.
 
 ### Hyperparameter & Training Strategy
 
 - **Optimizer**: `SGD` with momentum (0.9) was used for all models, providing stable and reliable convergence.
 - **Scheduler**: `ReduceLROnPlateau` was used to dynamically adjust the learning rate based on validation loss, allowing the model to fine-tune itself when training plateaued.
-- **Initial Learning Rate**: An initial LR of `0.01` was found to be a good starting point.
+- **Initial Learning Rate**: Current runs use an initial LR of `0.05` (see `train_xpu.py`).
 - **Data Augmentation**: `RandomRotation` and `RandomAffine` were used to create variations in the training data, helping the model generalize better.
 
 ## How to Run
