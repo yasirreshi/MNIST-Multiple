@@ -1,0 +1,189 @@
+Calculating dataset statistics (mean and std)...
+
+--- Calculated Dataset Statistics ---
+Calculated Mean: 0.1307
+Calculated Std: 0.3015
+Used for Normalization: Mean=0.1307, Std=0.3081
+The calculated values are very close to the standard ones, confirming our normalization is correct.
+-------------------------------------
+
+Intel XPU Available? True
+CUDA Available? False
+
+--- Data Statistics (First Batch) ---
+Images tensor shape: torch.Size([128, 1, 28, 28])
+Labels tensor shape: torch.Size([128])
+ - min: -0.4242
+ - max: 2.8215
+ - mean: 0.0058
+ - std: 1.0068
+ - var: 1.0136
+-------------------------------------
+
+Saved a sample of the training data to analytics\pre_training\data_sample_v1.png
+
+Using device: xpu
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 16, 26, 26]             144
+       BatchNorm2d-2           [-1, 16, 26, 26]              32
+              ReLU-3           [-1, 16, 26, 26]               0
+            Conv2d-4           [-1, 12, 26, 26]           1,728
+       BatchNorm2d-5           [-1, 12, 26, 26]              24
+              ReLU-6           [-1, 12, 26, 26]               0
+           Dropout-7           [-1, 12, 26, 26]               0
+            Conv2d-8           [-1, 12, 26, 26]           1,296
+       BatchNorm2d-9           [-1, 12, 26, 26]              24
+             ReLU-10           [-1, 12, 26, 26]               0
+          Dropout-11           [-1, 12, 26, 26]               0
+        MaxPool2d-12           [-1, 12, 13, 13]               0
+           Conv2d-13           [-1, 10, 11, 11]           1,080
+      BatchNorm2d-14           [-1, 10, 11, 11]              20
+             ReLU-15           [-1, 10, 11, 11]               0
+           Conv2d-16             [-1, 10, 9, 9]             900
+      BatchNorm2d-17             [-1, 10, 9, 9]              20
+             ReLU-18             [-1, 10, 9, 9]               0
+          Dropout-19             [-1, 10, 9, 9]               0
+           Conv2d-20             [-1, 10, 7, 7]             900
+      BatchNorm2d-21             [-1, 10, 7, 7]              20
+             ReLU-22             [-1, 10, 7, 7]               0
+          Dropout-23             [-1, 10, 7, 7]               0
+           Conv2d-24             [-1, 10, 7, 7]             100
+      BatchNorm2d-25             [-1, 10, 7, 7]              20
+             ReLU-26             [-1, 10, 7, 7]               0
+        AvgPool2d-27             [-1, 10, 1, 1]               0
+================================================================
+Total params: 6,308
+Trainable params: 6,308
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.84
+Params size (MB): 0.02
+Estimated Total Size (MB): 0.86
+----------------------------------------------------------------
+Saved model analysis to analytics\pre_training\model_analysis_v1.json
+Model analysis saved: analytics\pre_training\model_analysis_v1.json
+Saved model params CSV to analytics\pre_training\model_params_v1.csv
+Saved model RF progression CSV to analytics\pre_training\model_rf_progression_v1.csv
+Model analysis CSVs saved: {'params_csv': 'analytics\\pre_training\\model_params_v1.csv', 'rf_csv': 'analytics\\pre_training\\model_rf_progression_v1.csv'}
+
+--- Hyperparameters & Run Config ---
+run_timestamp: 2025-10-03T10:39:28.217132
+model_source_file: D:\Educational\ERA_v4\Session6\Assignment\model_v1.py
+model_suffix: _v1
+total_trainable_params: 6308
+optimizer:
+  - type: SGD
+  - lr: 0.05
+  - momentum: 0.9
+  - weight_decay: 0.0005
+scheduler:
+  - type: ReduceLROnPlateau
+  - mode: min
+  - factor: 0.1
+  - patience: 2
+  - threshold: 0.001
+  - cooldown: 0
+  - min_lr: 1e-05
+epochs: 15
+device: xpu
+device_details:
+  - xpu_available: True
+  - cuda_available: False
+  - xpu_name: Intel(R) Arc(TM) Graphics
+  - cuda_name: None
+  - ipex_enabled: False
+batch_size: 128
+num_workers: 2
+pin_memory: True
+train_dataset_size: 60000
+test_dataset_size: 10000
+train_transforms: Compose(
+    RandomRotation(degrees=[-7.0, 7.0], interpolation=nearest, expand=False, fill=(1,))
+    RandomAffine(degrees=[0.0, 0.0], translate=(0.1, 0.1))
+    ToTensor()
+    Normalize(mean=(0.1307,), std=(0.3081,))
+)
+test_transforms: Compose(
+    ToTensor()
+    Normalize(mean=(0.1307,), std=(0.3081,))
+)
+data_root: D:\Educational\ERA_v4\Session6\Assignment\data
+analytics_root: D:\Educational\ERA_v4\Session6\Assignment\analytics
+outputs_suffix: _v1
+------------------------------------
+
+Saved hyperparameters to analytics\pre_training\hparams_v1.json
+EPOCH: 1 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.1444, Accuracy: 9628/10000 (96.28%)
+
+EPOCH: 2 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0740, Accuracy: 9787/10000 (97.87%)
+
+EPOCH: 3 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0821, Accuracy: 9761/10000 (97.61%)
+
+EPOCH: 4 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0570, Accuracy: 9833/10000 (98.33%)
+
+EPOCH: 5 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.1020, Accuracy: 9709/10000 (97.09%)
+
+EPOCH: 6 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0640, Accuracy: 9795/10000 (97.95%)
+
+EPOCH: 7 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0547, Accuracy: 9847/10000 (98.47%)
+
+EPOCH: 8 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0636, Accuracy: 9814/10000 (98.14%)
+
+EPOCH: 9 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0839, Accuracy: 9741/10000 (97.41%)
+
+EPOCH: 10 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0998, Accuracy: 9692/10000 (96.92%)
+
+EPOCH: 11 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0343, Accuracy: 9901/10000 (99.01%)
+
+EPOCH: 12 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0363, Accuracy: 9907/10000 (99.07%)
+
+EPOCH: 13 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0346, Accuracy: 9906/10000 (99.06%)
+
+EPOCH: 14 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0359, Accuracy: 9897/10000 (98.97%)
+
+EPOCH: 15 (Learning Rate: 0.000500)
+
+Test set: Average loss: 0.0327, Accuracy: 9918/10000 (99.18%)
+
+
+--- Training Complete ---
+Generating performance plots...
+
+Saved training performance graph to analytics\post_training\training_performance_v1.png
+Saved zoomed training performance graph to analytics\post_training\training_performance_zoom_v1.png
+Saved 10 misclassified images to analytics\post_training\misclassified_images_v1.png
+Computing confusion matrix and per-class metrics...
+Saved confusion matrix to analytics\post_training\confusion_matrix_v1.png
+Saved per-class accuracy chart to analytics\post_training\per_class_accuracy_v1.png
+Saved classification report to analytics\post_training\classification_report_v1.json

@@ -1,0 +1,38 @@
+# Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env/
+venv/
+ENV/
+env/
+*.egg-info/
+.conda
+.venv/
+.ipynb_checkpoints/
+.ipynb_checkpoints
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# Data and analytics outputs
+data/
+analytics/
+*.csv
+*.json
+*.png
+
+# Model weights and checkpoints
+*.pt
+*.pth
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs

@@ -1,0 +1,180 @@
+Calculating dataset statistics (mean and std)...
+
+--- Calculated Dataset Statistics ---
+Calculated Mean: 0.1307
+Calculated Std: 0.3015
+Used for Normalization: Mean=0.1307, Std=0.3081
+The calculated values are very close to the standard ones, confirming our normalization is correct.
+-------------------------------------
+
+Intel XPU Available? True
+CUDA Available? False
+
+--- Data Statistics (First Batch) ---
+Images tensor shape: torch.Size([128, 1, 28, 28])
+Labels tensor shape: torch.Size([128])
+ - min: -0.4242
+ - max: 2.8215
+ - mean: 0.0058
+ - std: 1.0068
+ - var: 1.0136
+-------------------------------------
+
+Saved a sample of the training data to analytics\pre_training\data_sample.png
+
+Using device: xpu
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 16, 26, 26]             144
+              ReLU-2           [-1, 16, 26, 26]               0
+            Conv2d-3           [-1, 32, 26, 26]           4,608
+              ReLU-4           [-1, 32, 26, 26]               0
+            Conv2d-5           [-1, 24, 26, 26]           6,912
+              ReLU-6           [-1, 24, 26, 26]               0
+         MaxPool2d-7           [-1, 24, 13, 13]               0
+            Conv2d-8           [-1, 16, 11, 11]           3,456
+              ReLU-9           [-1, 16, 11, 11]               0
+           Conv2d-10             [-1, 14, 9, 9]           2,016
+             ReLU-11             [-1, 14, 9, 9]               0
+           Conv2d-12             [-1, 12, 7, 7]           1,512
+             ReLU-13             [-1, 12, 7, 7]               0
+           Conv2d-14             [-1, 10, 5, 5]           1,080
+             ReLU-15             [-1, 10, 5, 5]               0
+           Conv2d-16             [-1, 10, 3, 3]             900
+             ReLU-17             [-1, 10, 3, 3]               0
+           Linear-18                   [-1, 10]             910
+================================================================
+Total params: 21,538
+Trainable params: 21,538
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.83
+Params size (MB): 0.08
+Estimated Total Size (MB): 0.92
+----------------------------------------------------------------
+Saved model analysis to analytics\pre_training\model_analysis.json
+Model analysis saved: analytics\pre_training\model_analysis.json
+Saved model params CSV to analytics\pre_training\model_params.csv
+Saved model RF progression CSV to analytics\pre_training\model_rf_progression.csv
+Model analysis CSVs saved: {'params_csv': 'analytics\\pre_training\\model_params.csv', 'rf_csv': 'analytics\\pre_training\\model_rf_progression.csv'}
+
+--- Hyperparameters & Run Config ---
+run_timestamp: 2025-10-03T10:17:15.007143
+model_source_file: D:\Educational\ERA_v4\Session6\Assignment\model.py
+model_suffix: 
+total_trainable_params: 21538
+optimizer:
+  - type: SGD
+  - lr: 0.05
+  - momentum: 0.9
+  - weight_decay: 0.0005
+scheduler:
+  - type: ReduceLROnPlateau
+  - mode: min
+  - factor: 0.1
+  - patience: 2
+  - threshold: 0.001
+  - cooldown: 0
+  - min_lr: 1e-05
+epochs: 15
+device: xpu
+device_details:
+  - xpu_available: True
+  - cuda_available: False
+  - xpu_name: Intel(R) Arc(TM) Graphics
+  - cuda_name: None
+  - ipex_enabled: False
+batch_size: 128
+num_workers: 2
+pin_memory: True
+train_dataset_size: 60000
+test_dataset_size: 10000
+train_transforms: Compose(
+    RandomRotation(degrees=[-7.0, 7.0], interpolation=nearest, expand=False, fill=(1,))
+    RandomAffine(degrees=[0.0, 0.0], translate=(0.1, 0.1))
+    ToTensor()
+    Normalize(mean=(0.1307,), std=(0.3081,))
+)
+test_transforms: Compose(
+    ToTensor()
+    Normalize(mean=(0.1307,), std=(0.3081,))
+)
+data_root: D:\Educational\ERA_v4\Session6\Assignment\data
+analytics_root: D:\Educational\ERA_v4\Session6\Assignment\analytics
+outputs_suffix: 
+------------------------------------
+
+Saved hyperparameters to analytics\pre_training\hparams.json
+EPOCH: 1 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.2048, Accuracy: 9462/10000 (94.62%)
+
+EPOCH: 2 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.1083, Accuracy: 9653/10000 (96.53%)
+
+EPOCH: 3 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.1158, Accuracy: 9668/10000 (96.68%)
+
+EPOCH: 4 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0573, Accuracy: 9828/10000 (98.28%)
+
+EPOCH: 5 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0516, Accuracy: 9853/10000 (98.53%)
+
+EPOCH: 6 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0446, Accuracy: 9865/10000 (98.65%)
+
+EPOCH: 7 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0466, Accuracy: 9854/10000 (98.54%)
+
+EPOCH: 8 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0488, Accuracy: 9867/10000 (98.67%)
+
+EPOCH: 9 (Learning Rate: 0.050000)
+
+Test set: Average loss: 0.0468, Accuracy: 9886/10000 (98.86%)
+
+EPOCH: 10 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0236, Accuracy: 9926/10000 (99.26%)
+
+EPOCH: 11 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0225, Accuracy: 9931/10000 (99.31%)
+
+EPOCH: 12 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0234, Accuracy: 9934/10000 (99.34%)
+
+EPOCH: 13 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0224, Accuracy: 9926/10000 (99.26%)
+
+EPOCH: 14 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0197, Accuracy: 9937/10000 (99.37%)
+
+EPOCH: 15 (Learning Rate: 0.005000)
+
+Test set: Average loss: 0.0206, Accuracy: 9936/10000 (99.36%)
+
+
+--- Training Complete ---
+Generating performance plots...
+
+Saved training performance graph to analytics\post_training\training_performance.png
+Saved zoomed training performance graph to analytics\post_training\training_performance_zoom.png
+Saved 10 misclassified images to analytics\post_training\misclassified_images.png
+Computing confusion matrix and per-class metrics...
+Saved confusion matrix to analytics\post_training\confusion_matrix.png
+Saved per-class accuracy chart to analytics\post_training\per_class_accuracy.png
+Saved classification report to analytics\post_training\classification_report.json
