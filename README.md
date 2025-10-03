@@ -46,7 +46,7 @@ The project evolved through three major model versions, each with a specific goa
 
 ### Model 3: `model_v2.py` (The Constrained Optimizer)
 
-- **Objective**: To build the most efficient model possible, targeting **<6,000 parameters** while pushing for the highest possible accuracy (approaching 99.5%).
+- **Objective**: To build the most efficient model possible, targeting **<8,000 parameters** while pushing for the highest possible accuracy (approaching 99.5%).
 - **Architectural Philosophy**: A carefully balanced and refined architecture. It uses two pooling layers for more aggressive spatial reduction, allowing the network to build a sufficient receptive field with fewer channels in the early layers. The channel progression is meticulously managed to stay within the strict parameter budget.
 - **Key Components**:
   - **Dual `MaxPool2d` Layers**: Provides a more structured down-sampling approach, growing the receptive field efficiently.
