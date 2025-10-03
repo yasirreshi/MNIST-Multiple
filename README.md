@@ -54,7 +54,7 @@ The project evolved through three major model versions, each with a specific goa
   - **`nn.AdaptiveAvgPool2d` (GAP)**: Retains the efficient GAP head from `model_v1`.
 - **Performance**:
   - **Parameters**: 7,718 (per analytics export)
-  - **Final RF**: 56 (covers the 28x28 input comfortably via GAP)
+  - **Final RF**: 32 (covers the 28x28 input comfortably via GAP)
   - **Best Accuracy**: 99.15% (observed on a prior ~7.7k-parameter variant; expect similar with this layout).
 - **Analysis**: This model represents the pinnacle of the optimization journey, achieving the lowest parameter count while maintaining a strong, deep architecture. It is a testament to principled CNN design, where every layer and channel is chosen with the parameter budget in mind.
 
